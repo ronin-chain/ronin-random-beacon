@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  db:
+    image: postgres:14
+    ports:
+      - "15433:5432"
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
