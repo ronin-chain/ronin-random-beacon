@@ -37,7 +37,6 @@ func NewTaskCleaner(dbClient *db.Client, interval uint64) event.EventLooper {
 	return event.NewEventLooper(&processor, interval)
 }
 
-// Creates tasks. // TODO: improve flow, send tx to contract ASAP when received the event
 func (w *TaskCleaner) cleanupOldTasks() error {
 	ctx := context.Background()
 	// Get the time 2 months ago

@@ -151,7 +151,6 @@ func start(cli *cli.Context) {
 
 }
 func random(ctx *cli.Context) {
-	fmt.Println("aaa")
 	config := config.LoadConfig(ctx.String(ConfigFileFlag.GetName()))
 	period := ctx.String(PeriodFlag.GetName())
 	prevBeacon := ctx.String(PrevBeaconFlag.GetName())

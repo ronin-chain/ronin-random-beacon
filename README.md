@@ -4,25 +4,28 @@ The `random-beacon-chain` project is a service that generates random numbers and
 
 ## Background 
 ------
-We run service for listening the events from chain for generating the proof and submit after 10 minutes daily. It will retry n times before marking failed. 
+We run a service that listens for events from the blockchain, generates proofs based on these events, and submits them every 10 minutes daily. The service will retry n times before marking a submission as failed. 
 
 ## Flow 
-The idea is to use event trackers, task processing for processing via file 
+The service uses event trackers and task processing mechanisms to handle the flow of operations:
 
-### Chain Tracker
-Interval: 3s
+1. **Chain Tracker**: This component runs at an interval of 3 seconds, tracking the latest processed and finalized blocks on the blockchain.
 
-Tracking the latest block process.
+2. **Random Beacon Tracker**: This component tracks random beacon request events on the blockchain. It operates based on the `tracker_block_size` and `tracker_safe_block_range` settings, and updates the processed block.
 
-### Random beacon tracker
+3. **Task Creator**: This component creates tasks based on the events tracked by the Random Beacon Tracker.
 
-Tracking events with setting `tracker_block_size` and `tracker_safe_block_range`
+4. **Task Sender**: This component handles the tasks created by the Task Creator and prepares them for proof submission.
 
-### Task processor 
+5. **Task Syncer Sent**: This component handles sent tasks and updates their status to either success or failure.
+
+6. **Task Reorg Checker**: This component handles task reorganization based on the finalized block.
+
+7. **Task Cleaner**: This component cleans up tasks that are more than 2 months old.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine.
+These instructions will help you get a copy of the project up and running on your local machine.
 
 ### Prerequisites
 
