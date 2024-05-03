@@ -39,7 +39,7 @@ func TestGenerateProofResponse(t *testing.T) {
 	period := big.NewInt(456)
 	prevBeacon := big.NewInt(789)
 
-	_, err := core.GenerateProofResponse(vrfkey, period, prevBeacon)
+	_, err := core.GenerateProofResponse(vrfkey, period, prevBeacon, c.VRFConfig.KeyHash, c.OracleAddress)
 	if err != nil {
 		t.Errorf("GenerateProofResponse returned an error: %v", err)
 	}

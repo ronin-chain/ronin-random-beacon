@@ -76,7 +76,9 @@ func (w *TaskCreator) createTasks() error {
 			return fmt.Errorf("error while un-marshalling event, event=%v, error=%v", event, err)
 		}
 		// Gen a Proof based on tracked event Request
-		res, err := core.GenerateProofResponse(w.config.VRFConfig.Key, trackedEvent.Period, trackedEvent.Req.PrevBeacon)
+		res, err := core.GenerateProofResponse(w.config.VRFConfig.Key, trackedEvent.Period, trackedEvent.Req.PrevBeacon,
+			w.config.VRFConfig.KeyHash, w.config.OracleAddress)
+
 		if err != nil {
 			return fmt.Errorf("error while generate random proof, error=%v", err)
 		}

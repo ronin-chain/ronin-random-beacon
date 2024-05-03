@@ -44,13 +44,24 @@ var seedArguments = abi.Arguments{
 		Name: "prevBeacon",
 		Type: Uint256,
 	},
+	{
+		Name: "keyHash",
+		Type: Bytes32,
+	},
+	{
+		Name: "oracleAddr",
+		Type: Address,
+	},
 }
 
-func getProofSeed(period *big.Int, prevBeacon *big.Int) (*big.Int, error) {
+func getProofSeed(period *big.Int, prevBeacon *big.Int, keyHash common.Hash, oracleAddr common.Address) (*big.Int, error) {
 	encodedData, err := seedArguments.Pack(
 		period,
 		prevBeacon,
+		keyHash,
+		oracleAddr,
 	)
+
 	if err != nil {
 		return nil, err
 	}
@@ -58,9 +69,9 @@ func getProofSeed(period *big.Int, prevBeacon *big.Int) (*big.Int, error) {
 
 }
 
-func GenerateProofResponse(key vrfkey.KeyV2, period *big.Int, prevBeacon *big.Int) (*RandomWordsResponse, error) {
+func GenerateProofResponse(key vrfkey.KeyV2, period *big.Int, prevBeacon *big.Int, keyHash common.Hash, oracleAddr common.Address) (*RandomWordsResponse, error) {
 	// Generate a seed
-	seed, err := getProofSeed(period, prevBeacon)
+	seed, err := getProofSeed(period, prevBeacon, keyHash, oracleAddr)
 
 	if err != nil {
 		return nil, err
@@ -68,6 +79,10 @@ func GenerateProofResponse(key vrfkey.KeyV2, period *big.Int, prevBeacon *big.In
 	}
 	// Generate a proof
 	proof, err := key.GenerateProof(seed)
+
+	if err != nil {
+		return nil, err
+	}
 
 	solidityProof, err := ChainLinkVrfProof.SolidityPrecalculations(&proof)
 
