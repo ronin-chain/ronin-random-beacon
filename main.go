@@ -157,7 +157,7 @@ func random(ctx *cli.Context) {
 	log.Info("Loaded config ", "period", period, "Prev Beacon", prevBeacon)
 	log.Info("Loaded config", config.PrivateKey)
 	res, err := core.GenerateProofResponse(config.VRFConfig.Key, utils.ConvertStringToBigInt(period), utils.ConvertStringToBigInt(prevBeacon),
-		config.VRFConfig.KeyHash, config.OracleAddress)
+		config.VRFConfig.KeyHash)
 	if err != nil {
 		panic(err)
 	}

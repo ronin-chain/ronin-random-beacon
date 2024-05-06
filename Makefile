@@ -7,7 +7,8 @@ build:
 	go build -o ronin-random-beacon
 
 random: build
-	./ronin-random-beacon random $(ARGS)
+	@echo "Running the random function..."
+	@time ./ronin-random-beacon random $(ARGS)
 
 generate-key: build
 	@echo "Generating a key..."

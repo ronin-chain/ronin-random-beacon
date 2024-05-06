@@ -77,7 +77,7 @@ func (w *TaskCreator) createTasks() error {
 		}
 		// Gen a Proof based on tracked event Request
 		res, err := core.GenerateProofResponse(w.config.VRFConfig.Key, trackedEvent.Period, trackedEvent.Req.PrevBeacon,
-			w.config.VRFConfig.KeyHash, w.config.OracleAddress)
+			w.config.VRFConfig.KeyHash)
 
 		if err != nil {
 			return fmt.Errorf("error while generate random proof, error=%v", err)

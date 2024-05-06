@@ -48,18 +48,13 @@ var seedArguments = abi.Arguments{
 		Name: "keyHash",
 		Type: Bytes32,
 	},
-	{
-		Name: "oracleAddr",
-		Type: Address,
-	},
 }
 
-func getProofSeed(period *big.Int, prevBeacon *big.Int, keyHash common.Hash, oracleAddr common.Address) (*big.Int, error) {
+func getProofSeed(period *big.Int, prevBeacon *big.Int, keyHash common.Hash) (*big.Int, error) {
 	encodedData, err := seedArguments.Pack(
 		period,
 		prevBeacon,
 		keyHash,
-		oracleAddr,
 	)
 
 	if err != nil {
@@ -69,9 +64,9 @@ func getProofSeed(period *big.Int, prevBeacon *big.Int, keyHash common.Hash, ora
 
 }
 
-func GenerateProofResponse(key vrfkey.KeyV2, period *big.Int, prevBeacon *big.Int, keyHash common.Hash, oracleAddr common.Address) (*RandomWordsResponse, error) {
+func GenerateProofResponse(key vrfkey.KeyV2, period *big.Int, prevBeacon *big.Int, keyHash common.Hash) (*RandomWordsResponse, error) {
 	// Generate a seed
-	seed, err := getProofSeed(period, prevBeacon, keyHash, oracleAddr)
+	seed, err := getProofSeed(period, prevBeacon, keyHash)
 
 	if err != nil {
 		return nil, err
