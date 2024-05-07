@@ -72,7 +72,7 @@ var (
 		Name:        "start",
 		Usage:       "Start the random beacon",
 		Category:    "Random Beacon Commands",
-		Description: "The start tracking event from Coodirnator contract and submit the proof to the contract",
+		Description: "The start tracking event from Coordinator contract and submit the proof to the contract",
 		Flags: []cli.Flag{
 			ConfigFileFlag,
 		},

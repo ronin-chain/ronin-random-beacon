@@ -108,7 +108,7 @@ func LoadConfig(configFilePath string) *AppConfig {
 	txOptions, err := utils.GetTxOptions(config.PrivateKey, big.NewInt(config.ChainID))
 
 	if err != nil {
-		panic(fmt.Errorf("Failed to create authorzied transactor: %w", err))
+		panic(fmt.Errorf("Failed to create authorized transactor: %w", err))
 	}
 	contract.Init(config.RpcEndpoint, config.CoordinatorAddress, config.PrivateKey, big.NewInt(config.ChainID))
 	config.OracleAddress = txOptions.From
