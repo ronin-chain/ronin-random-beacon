@@ -1,0 +1,10 @@
+{
+    "verbosity": 4,
+    "chain_id": 2021,
+    "coordinator_address": "0xA60c1e07fa030E4B49Eb54950ADb298Ab94dD312",
+    "coordinator_starting_block": 25769861,
+    "rpc_endpoint": "http://localhost:8545",
+    "secret_key": "0x...",
+    "private_key": "0x..."
+}
+

@@ -1,0 +1,6 @@
+verbosity: 4
+chain_id: 6060
+coordinator_address: 0x8766648aA6586cC7Cd2cDb2Bd911eec78Cab89Ea # VRF Legacy
+coordinator_starting_block: 35216024
+processed_block: 35216000
+rpc_endpoint: http://node:8545

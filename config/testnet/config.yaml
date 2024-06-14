@@ -1,0 +1,6 @@
+verbosity: 4
+chain_id: 2021
+coordinator_address: 0xfa7c62096c5e277eeb85b4ad33889df534dd2b9c # VRF Legacy
+coordinator_starting_block: 27557000
+processed_block: 27556900
+rpc_endpoint: https://saigon-testnet.roninchain.com/rpc
