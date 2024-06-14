@@ -1,0 +1,1163 @@
+[
+  {
+      "type": "constructor",
+      "inputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "COOLDOWN_PERIOD_THRESHOLD",
+      "inputs": [],
+      "outputs": [
+          {
+              "name": "threshold",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "pure"
+  },
+  {
+      "type": "function",
+      "name": "DEFAULT_ADDITION_GAS",
+      "inputs": [],
+      "outputs": [
+          {
+              "name": "",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "PERIOD_DURATION",
+      "inputs": [],
+      "outputs": [
+          {
+              "name": "",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "bulkSetValidatorThresholds",
+      "inputs": [
+          {
+              "name": "validatorTypes",
+              "type": "uint8[]",
+              "internalType": "enum IRandomBeacon.ValidatorType[]"
+          },
+          {
+              "name": "thresholds",
+              "type": "uint256[]",
+              "internalType": "uint256[]"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "calcKeyHash",
+      "inputs": [
+          {
+              "name": "publicKeys",
+              "type": "uint256[2]",
+              "internalType": "uint256[2]"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "keyHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          }
+      ],
+      "stateMutability": "pure"
+  },
+  {
+      "type": "function",
+      "name": "execRecordAndSlashUnavailability",
+      "inputs": [
+          {
+              "name": "lastUpdatedPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "newPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "slashIndicator",
+              "type": "address",
+              "internalType": "address"
+          },
+          {
+              "name": "allCids",
+              "type": "address[]",
+              "internalType": "address[]"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "execRequestRandomSeedForNextPeriod",
+      "inputs": [
+          {
+              "name": "lastUpdatedPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "newPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "execWrapUpBeaconPeriod",
+      "inputs": [
+          {
+              "name": "lastUpdatedPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "newPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "allCids",
+              "type": "address[]",
+              "internalType": "address[]"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "fulfillRandomSeed",
+      "inputs": [
+          {
+              "name": "req",
+              "type": "tuple",
+              "internalType": "struct RandomRequest",
+              "components": [
+                  {
+                      "name": "period",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "prevBeacon",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "chainId",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "verifyingContract",
+                      "type": "address",
+                      "internalType": "address"
+                  }
+              ]
+          },
+          {
+              "name": "proof",
+              "type": "tuple",
+              "internalType": "struct VRF.Proof",
+              "components": [
+                  {
+                      "name": "pk",
+                      "type": "uint256[2]",
+                      "internalType": "uint256[2]"
+                  },
+                  {
+                      "name": "gamma",
+                      "type": "uint256[2]",
+                      "internalType": "uint256[2]"
+                  },
+                  {
+                      "name": "c",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "s",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "seed",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "uWitness",
+                      "type": "address",
+                      "internalType": "address"
+                  },
+                  {
+                      "name": "cGammaWitness",
+                      "type": "uint256[2]",
+                      "internalType": "uint256[2]"
+                  },
+                  {
+                      "name": "sHashWitness",
+                      "type": "uint256[2]",
+                      "internalType": "uint256[2]"
+                  },
+                  {
+                      "name": "zInv",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  }
+              ]
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "getActivatedAtPeriod",
+      "inputs": [],
+      "outputs": [
+          {
+              "name": "",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getBeaconData",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "value",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "finalized",
+              "type": "bool",
+              "internalType": "bool"
+          },
+          {
+              "name": "submissionCount",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getContract",
+      "inputs": [
+          {
+              "name": "contractType",
+              "type": "uint8",
+              "internalType": "enum ContractType"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "contract_",
+              "type": "address",
+              "internalType": "address payable"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getLastFinalizedPeriod",
+      "inputs": [],
+      "outputs": [
+          {
+              "name": "",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getRequestHash",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "reqHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getSavedValidatorSet",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "",
+              "type": "tuple",
+              "internalType": "struct LibSortValidatorsByBeacon.ValidatorStorage",
+              "components": [
+                  {
+                      "name": "_pickAll",
+                      "type": "bool",
+                      "internalType": "bool"
+                  },
+                  {
+                      "name": "_sorted",
+                      "type": "tuple",
+                      "internalType": "struct LibSortValidatorsByBeacon.SortedValidatorStorage",
+                      "components": [
+                          {
+                              "name": "_nRV",
+                              "type": "uint16",
+                              "internalType": "uint16"
+                          },
+                          {
+                              "name": "_nonRotatingValidators",
+                              "type": "address[]",
+                              "internalType": "address[]"
+                          },
+                          {
+                              "name": "_rotatingValidators",
+                              "type": "tuple[]",
+                              "internalType": "struct LibSortValidatorsByBeacon.RotatingValidatorStorage[]",
+                              "components": [
+                                  {
+                                      "name": "_cid",
+                                      "type": "address",
+                                      "internalType": "address"
+                                  },
+                                  {
+                                      "name": "_staked",
+                                      "type": "uint96",
+                                      "internalType": "uint96"
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "name": "_unsorted",
+                      "type": "tuple",
+                      "internalType": "struct LibSortValidatorsByBeacon.UnsortedValidatorStorage",
+                      "components": [
+                          {
+                              "name": "_cids",
+                              "type": "address[]",
+                              "internalType": "address[]"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getSelectedValidatorSet",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "epoch",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "pickedCids",
+              "type": "address[]",
+              "internalType": "address[]"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getUnavailabilityCount",
+      "inputs": [
+          {
+              "name": "consensus",
+              "type": "address",
+              "internalType": "TConsensus"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "count",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getUnavailabilityCountById",
+      "inputs": [
+          {
+              "name": "cid",
+              "type": "address",
+              "internalType": "address"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "count",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getUnavailabilitySlashThreshold",
+      "inputs": [],
+      "outputs": [
+          {
+              "name": "threshold",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "getValidatorThreshold",
+      "inputs": [
+          {
+              "name": "validatorType",
+              "type": "uint8",
+              "internalType": "enum IRandomBeacon.ValidatorType"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "threshold",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "initialize",
+      "inputs": [
+          {
+              "name": "profile",
+              "type": "address",
+              "internalType": "address"
+          },
+          {
+              "name": "staking",
+              "type": "address",
+              "internalType": "address"
+          },
+          {
+              "name": "trustedOrg",
+              "type": "address",
+              "internalType": "address"
+          },
+          {
+              "name": "validatorSet",
+              "type": "address",
+              "internalType": "address"
+          },
+          {
+              "name": "slashThreshold",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "activatedAtPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "validatorTypes",
+              "type": "uint8[]",
+              "internalType": "enum IRandomBeacon.ValidatorType[]"
+          },
+          {
+              "name": "thresholds",
+              "type": "uint256[]",
+              "internalType": "uint256[]"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "initializeV2",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "isSubmittedAt",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "consensus",
+              "type": "address",
+              "internalType": "TConsensus"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "submitted",
+              "type": "bool",
+              "internalType": "bool"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "isSubmittedAtById",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "cid",
+              "type": "address",
+              "internalType": "address"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "submitted",
+              "type": "bool",
+              "internalType": "bool"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "isSubmittedAtByKeyHash",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "keyHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "submitted",
+              "type": "bool",
+              "internalType": "bool"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "pickValidatorSetForCurrentPeriod",
+      "inputs": [
+          {
+              "name": "epoch",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "pickedCids",
+              "type": "address[]",
+              "internalType": "address[]"
+          }
+      ],
+      "stateMutability": "view"
+  },
+  {
+      "type": "function",
+      "name": "setContract",
+      "inputs": [
+          {
+              "name": "contractType",
+              "type": "uint8",
+              "internalType": "enum ContractType"
+          },
+          {
+              "name": "addr",
+              "type": "address",
+              "internalType": "address"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "function",
+      "name": "setUnavailabilitySlashThreshold",
+      "inputs": [
+          {
+              "name": "threshold",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+  },
+  {
+      "type": "event",
+      "name": "BeaconFinalized",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "indexed": true,
+              "internalType": "uint256"
+          },
+          {
+              "name": "value",
+              "type": "uint256",
+              "indexed": false,
+              "internalType": "uint256"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "ContractUpdated",
+      "inputs": [
+          {
+              "name": "contractType",
+              "type": "uint8",
+              "indexed": true,
+              "internalType": "enum ContractType"
+          },
+          {
+              "name": "addr",
+              "type": "address",
+              "indexed": true,
+              "internalType": "address"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "Initialized",
+      "inputs": [
+          {
+              "name": "version",
+              "type": "uint8",
+              "indexed": false,
+              "internalType": "uint8"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "Migrated",
+      "inputs": [
+          {
+              "name": "curr",
+              "type": "tuple",
+              "indexed": false,
+              "internalType": "struct LibSortValidatorsByBeacon.ValidatorStorage",
+              "components": [
+                  {
+                      "name": "_pickAll",
+                      "type": "bool",
+                      "internalType": "bool"
+                  },
+                  {
+                      "name": "_sorted",
+                      "type": "tuple",
+                      "internalType": "struct LibSortValidatorsByBeacon.SortedValidatorStorage",
+                      "components": [
+                          {
+                              "name": "_nRV",
+                              "type": "uint16",
+                              "internalType": "uint16"
+                          },
+                          {
+                              "name": "_nonRotatingValidators",
+                              "type": "address[]",
+                              "internalType": "address[]"
+                          },
+                          {
+                              "name": "_rotatingValidators",
+                              "type": "tuple[]",
+                              "internalType": "struct LibSortValidatorsByBeacon.RotatingValidatorStorage[]",
+                              "components": [
+                                  {
+                                      "name": "_cid",
+                                      "type": "address",
+                                      "internalType": "address"
+                                  },
+                                  {
+                                      "name": "_staked",
+                                      "type": "uint96",
+                                      "internalType": "uint96"
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                      "name": "_unsorted",
+                      "type": "tuple",
+                      "internalType": "struct LibSortValidatorsByBeacon.UnsortedValidatorStorage",
+                      "components": [
+                          {
+                              "name": "_cids",
+                              "type": "address[]",
+                              "internalType": "address[]"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "RandomSeedFulfilled",
+      "inputs": [
+          {
+              "name": "by",
+              "type": "address",
+              "indexed": true,
+              "internalType": "address"
+          },
+          {
+              "name": "period",
+              "type": "uint256",
+              "indexed": true,
+              "internalType": "uint256"
+          },
+          {
+              "name": "reqHash",
+              "type": "bytes32",
+              "indexed": true,
+              "internalType": "bytes32"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "RandomSeedRequested",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "indexed": true,
+              "internalType": "uint256"
+          },
+          {
+              "name": "reqHash",
+              "type": "bytes32",
+              "indexed": true,
+              "internalType": "bytes32"
+          },
+          {
+              "name": "req",
+              "type": "tuple",
+              "indexed": false,
+              "internalType": "struct RandomRequest",
+              "components": [
+                  {
+                      "name": "period",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "prevBeacon",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "chainId",
+                      "type": "uint256",
+                      "internalType": "uint256"
+                  },
+                  {
+                      "name": "verifyingContract",
+                      "type": "address",
+                      "internalType": "address"
+                  }
+              ]
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "SlashUnavailabilityThresholdUpdated",
+      "inputs": [
+          {
+              "name": "value",
+              "type": "uint256",
+              "indexed": false,
+              "internalType": "uint256"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "ValidatorSetSaved",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "indexed": true,
+              "internalType": "uint256"
+          },
+          {
+              "name": "pickedAll",
+              "type": "bool",
+              "indexed": false,
+              "internalType": "bool"
+          },
+          {
+              "name": "nRV",
+              "type": "uint256",
+              "indexed": false,
+              "internalType": "uint256"
+          },
+          {
+              "name": "nonRotatingValidators",
+              "type": "address[]",
+              "indexed": false,
+              "internalType": "address[]"
+          },
+          {
+              "name": "rotatingValidators",
+              "type": "address[]",
+              "indexed": false,
+              "internalType": "address[]"
+          },
+          {
+              "name": "rotatingStakeAmounts",
+              "type": "uint256[]",
+              "indexed": false,
+              "internalType": "uint256[]"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "event",
+      "name": "ValidatorThresholdUpdated",
+      "inputs": [
+          {
+              "name": "validatorType",
+              "type": "uint8",
+              "indexed": true,
+              "internalType": "enum IRandomBeacon.ValidatorType"
+          },
+          {
+              "name": "threshold",
+              "type": "uint256",
+              "indexed": false,
+              "internalType": "uint256"
+          }
+      ],
+      "anonymous": false
+  },
+  {
+      "type": "error",
+      "name": "ErrAlreadyFinalizedBeacon",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrAlreadySubmitted",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrContractTypeNotFound",
+      "inputs": [
+          {
+              "name": "contractType",
+              "type": "uint8",
+              "internalType": "enum ContractType"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidChainId",
+      "inputs": [
+          {
+              "name": "expected",
+              "type": "uint256",
+              "internalType": "uint256"
+          },
+          {
+              "name": "actual",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidKeyHash",
+      "inputs": [
+          {
+              "name": "expected",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          },
+          {
+              "name": "actual",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidPeriod",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidProof",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidRandomRequest",
+      "inputs": [
+          {
+              "name": "expected",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          },
+          {
+              "name": "actual",
+              "type": "bytes32",
+              "internalType": "bytes32"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidThresholdConfig",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrInvalidVerifyingContract",
+      "inputs": [
+          {
+              "name": "expected",
+              "type": "address",
+              "internalType": "address"
+          },
+          {
+              "name": "actual",
+              "type": "address",
+              "internalType": "address"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrLengthMismatch",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrLengthMismatch",
+      "inputs": [
+          {
+              "name": "msgSig",
+              "type": "bytes4",
+              "internalType": "bytes4"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrNotActivated",
+      "inputs": [
+          {
+              "name": "untilPeriod",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrNotEndedChangeKeyHashCooldown",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrNotEndedRegisterCooldown",
+      "inputs": []
+  },
+  {
+      "type": "error",
+      "name": "ErrNotFinalizedBeacon",
+      "inputs": [
+          {
+              "name": "period",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrOutOfRange",
+      "inputs": [
+          {
+              "name": "index",
+              "type": "uint256",
+              "internalType": "uint256"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrUnauthorized",
+      "inputs": [
+          {
+              "name": "msgSig",
+              "type": "bytes4",
+              "internalType": "bytes4"
+          },
+          {
+              "name": "expectedRole",
+              "type": "uint8",
+              "internalType": "enum RoleAccess"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrUnauthorizedCall",
+      "inputs": [
+          {
+              "name": "msgSig",
+              "type": "bytes4",
+              "internalType": "bytes4"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrUnexpectedInternalCall",
+      "inputs": [
+          {
+              "name": "msgSig",
+              "type": "bytes4",
+              "internalType": "bytes4"
+          },
+          {
+              "name": "expectedContractType",
+              "type": "uint8",
+              "internalType": "enum ContractType"
+          },
+          {
+              "name": "actual",
+              "type": "address",
+              "internalType": "address"
+          }
+      ]
+  },
+  {
+      "type": "error",
+      "name": "ErrZeroCodeContract",
+      "inputs": [
+          {
+              "name": "addr",
+              "type": "address",
+              "internalType": "address"
+          }
+      ]
+  }
+]

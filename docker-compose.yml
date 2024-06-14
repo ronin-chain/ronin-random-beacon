@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+  ronin-random-beacon-chain:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    environment:
+      RONIN_RANDOM_BEACON_PARAMS: ${RONIN_RANDOM_BEACON_PARAMS}
+      RONIN_PRIVATE_KEY: ${RONIN_PRIVATE_KEY}
+      RONIN_SECRET_KEY: ${RONIN_SECRET_KEY}
+      RONIN_RPC_ENDPOINT: ${RONIN_RPC_ENDPOINT}
+      RONIN_VERBOSITY: ${RONIN_VERBOSITY}
+      RONIN_DATABASE_URL: ${RONIN_DATABASE_URL}
+  db:
+    image: postgres:14
+    ports:
+      - "15433:5432"
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
