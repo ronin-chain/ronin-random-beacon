@@ -1,3 +1,4 @@
 .env
 ronin-random-beacon
 .env.sh
+db-data
