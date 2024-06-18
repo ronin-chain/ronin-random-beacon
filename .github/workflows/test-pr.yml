@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: 'Checkout Repo'
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c #v3.3.0
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 #v4.1.7
 
       - name: 'Setup Go'
         uses: actions/setup-go@cdcb36043654635271a94b9a6d1392de5bb323a7 #v3.3.0
