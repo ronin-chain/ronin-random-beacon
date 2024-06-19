@@ -1,5 +1,6 @@
 verbosity: 4
-chain_id: 2021
-coordinator_address: 0xA60c1e07fa030E4B49Eb54950ADb298Ab94dD312 # VRF Legacy
-coordinator_starting_block: 25769861
-rpc_endpoint: http://localhost:8545
+chain_id: 2020
+coordinator_address: 0xae4788294759c1ea2d095766cc902786ba2280dc # https://app.roninchain.com/address/0xae4788294759c1ea2d095766cc902786ba2280dc
+coordinator_starting_block: 35617624
+processed_block: 35617600
+rpc_endpoint: https://api.roninchain.com/rpc
