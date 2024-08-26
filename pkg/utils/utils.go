@@ -46,7 +46,8 @@ func Max(a, b uint64) uint64 {
 	return b
 }
 
-func ConvertHexaStringToIntWithBuffer(s string, buffer uint64) (uint64, error) {
+// Convert HexString to Uin64 with optional delay, delay is subtracted from the result.
+func ParseBlockNumberWithOptionalDelay(s string, delay uint64) (uint64, error) {
 	s = strings.TrimSpace(s)
 	// Strip the "0x" prefix if present
 	if strings.HasPrefix(s, "0x") {
@@ -61,8 +62,8 @@ func ConvertHexaStringToIntWithBuffer(s string, buffer uint64) (uint64, error) {
 	if err != nil {
 		return 0, err
 	}
-	if number < buffer {
+	if number < delay {
 		return 0, fmt.Errorf("invalid hexa string %s", s)
 	}
-	return number - buffer, nil
+	return number - delay, nil
 }

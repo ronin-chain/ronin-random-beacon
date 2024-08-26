@@ -119,7 +119,7 @@ func (l *ChainListener) getFinalizedBlockNumber(rpcEndpoint string) (uint64, err
 		return 0, err
 	}
 
-	number, err := utils.ConvertHexaStringToIntWithBuffer(rs.Result.Number, BufferBlock)
+	number, err := utils.ParseBlockNumberWithOptionalDelay(rs.Result.Number, BufferBlock)
 	return number, err
 }
 

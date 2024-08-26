@@ -60,7 +60,7 @@ func TestMax(t *testing.T) {
 	}
 }
 
-func TestConvertHexaStringToIntWithBuffer(t *testing.T) {
+func TestParseBlockNumberWithOptionalDelay(t *testing.T) {
 	const (
 		bufferBlock = 2
 	)
@@ -75,6 +75,7 @@ func TestConvertHexaStringToIntWithBuffer(t *testing.T) {
 		{"0x1234", bufferBlock, 4658, ""},
 		{"  0x1234  ", bufferBlock, 4658, ""},
 		{" 1234", bufferBlock, 4658, ""},
+		{"0x1234", 0, 4660, ""},
 		{"0x1", bufferBlock, 0, "invalid hexa string"},
 		{"0x", bufferBlock, 0, "invalid hexa string"},
 		{"    ", bufferBlock, 0, "invalid hexa string"},
@@ -83,7 +84,7 @@ func TestConvertHexaStringToIntWithBuffer(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		result, err := utils.ConvertHexaStringToIntWithBuffer(tc.input, tc.buffer)
+		result, err := utils.ParseBlockNumberWithOptionalDelay(tc.input, tc.buffer)
 		if result != tc.expected {
 			t.Errorf("ConvertHexaStringToIntWithBuffer(%q, %v) = %v; want %v", tc.input, tc.buffer, result, tc.expected)
 		}
