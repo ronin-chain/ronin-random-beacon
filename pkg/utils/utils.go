@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"math/big"
+	"strconv"
 	"strings"
 
 	"github.com/ethereum/go-ethereum/crypto"
@@ -43,4 +44,25 @@ func Max(a, b uint64) uint64 {
 		return a
 	}
 	return b
+}
+
+func ConvertHexaStringToIntWithBuffer(s string, buffer uint64) (uint64, error) {
+	s = strings.TrimSpace(s)
+	// Strip the "0x" prefix if present
+	if strings.HasPrefix(s, "0x") {
+		s = s[2:]
+	}
+
+	if len(s) == 0 {
+		return 0, fmt.Errorf("invalid hexa string %s", s)
+	}
+
+	number, err := strconv.ParseUint(s, 16, 64)
+	if err != nil {
+		return 0, err
+	}
+	if number < buffer {
+		return 0, fmt.Errorf("invalid hexa string %s", s)
+	}
+	return number - buffer, nil
 }

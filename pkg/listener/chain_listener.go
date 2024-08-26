@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 	"time"
 
 	"github.com/ethereum/go-ethereum/ethclient"
@@ -15,6 +14,7 @@ import (
 	"github.com/ronin-chain/ronin-random-beacon/pkg/contract"
 	"github.com/ronin-chain/ronin-random-beacon/pkg/db"
 	"github.com/ronin-chain/ronin-random-beacon/pkg/event"
+	"github.com/ronin-chain/ronin-random-beacon/pkg/utils"
 )
 
 const (
@@ -119,12 +119,8 @@ func (l *ChainListener) getFinalizedBlockNumber(rpcEndpoint string) (uint64, err
 		return 0, err
 	}
 
-	number, err := strconv.ParseUint(rs.Result.Number[2:], 16, 64)
-	if err != nil {
-		return 0, err
-	}
-
-	return number - BufferBlock, nil // Add a little buffer 2 blocks for avoiding reorg in RequestRandom.
+	number, err := utils.ConvertHexaStringToIntWithBuffer(rs.Result.Number, BufferBlock)
+	return number, err
 }
 
 // Syncs latest block number.
