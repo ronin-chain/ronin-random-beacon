@@ -15,7 +15,6 @@ import (
 	dbTask "github.com/ronin-chain/ronin-random-beacon/pkg/db/task"
 	"github.com/ronin-chain/ronin-random-beacon/pkg/event"
 	"github.com/ronin-chain/ronin-random-beacon/pkg/listener"
-	"github.com/ronin-chain/ronin-random-beacon/pkg/utils"
 )
 
 type TaskSender struct {
@@ -112,7 +111,6 @@ func (w *TaskSender) sendTasks() error {
 
 		updatingTask := task.Update()
 
-		w.coordinator.TransactOpts.GasPrice = utils.ConvertStringToBigInt("20000000000")
 		tx, err := w.coordinator.FulfillRandomSeed(params.Req, params.Proof)
 		if err != nil {
 			log.Error("[TaskSender][sendTasks] got error on sending task", "taskId", task.ID, "err", err)
